@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /ai-school-site/
-
-Sitemap: https://ai-school.uz/sitemap.xml
