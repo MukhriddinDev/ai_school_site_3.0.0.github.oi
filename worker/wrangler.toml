@@ -1,0 +1,32 @@
+name = "ai-school-forms"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Faqat shu saytlardan kelgan so'rovlar qabul qilinadi (vergul bilan ajrating).
+[vars]
+ALLOWED_ORIGINS = "https://ai-school.uz,https://www.ai-school.uz"
+# Ixtiyoriy: holat tugmalarini faqat shu Telegram user ID lar bosa oladi (vergul bilan).
+ADMIN_USER_IDS = ""
+
+# Spamdan himoya: bitta IP manzildan daqiqasiga 5 tagacha murojaat.
+[[ratelimits]]
+name = "FORM_LIMITER"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 5
+  period = 60
+
+# Ixtiyoriy: takroriy yuborishni barcha serverlarda aniqlash uchun KV.
+# Yaratish: npx wrangler kv namespace create LEADS_KV  -> chiqqan id ni quyiga yozing va izohdan chiqaring.
+# [[kv_namespaces]]
+# binding = "LEADS_KV"
+# id = "BU_YERGA_KV_ID"
+
+[observability]
+enabled = true
+
+# MAXFIY qiymatlar bu faylga YOZILMAYDI. Ularni buyruq bilan kiriting:
+#   npx wrangler secret put TG_BOT_TOKEN
+#   npx wrangler secret put TG_ADMIN_CHAT_ID
+#   npx wrangler secret put TURNSTILE_SECRET     (ixtiyoriy)
+#   npx wrangler secret put TG_WEBHOOK_SECRET    (faqat B variantda)
