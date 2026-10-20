@@ -11,6 +11,6 @@
    kalitni HECH QACHON yozmang — bu fayl hammaga ochiq.
    ===================================================================== */
 window.AIS_CONFIG = {
-  apiUrl: "",
+  apiUrl: "https://ai-school-forms.ergashevm0624.workers.dev/api/lead",
   turnstileSiteKey: ""
 };
